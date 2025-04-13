@@ -1,0 +1,22 @@
+
+[workspace]
+resolver = "2"
+
+members = [
+    "by_attack_type",
+    "by_attack_vector",
+    "by_threat_urgency",
+    "by_target_area",
+    "by_geolocation"
+]
+
+[workspace.dependencies]
+fluvio-smartmodule = "0.7"
+serde = { version = "1.0", features = ["derive"] }
+serde_json = "1.0"
+
+[profile.release]
+opt-level = "z"
+lto = true
+codegen-units = 1
+panic = "abort"
